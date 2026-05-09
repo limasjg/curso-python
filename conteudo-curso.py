@@ -119,3 +119,46 @@
 # pessoa = {"nome":"João", "idade":25, "Vivo":True}
 # pessoa.update({"Cidade":"Curitiba"})
 # print(pessoa["nome"])
+
+#Funções são blocos de código que só executam quando chamados. Podem receber argumentos e são reutilizáveis.
+# def soma(num1, num2):
+#     return num1 + num2
+
+# print(soma(2, 2)) # saída: 4
+
+# def mensagem():
+#     print("Olá, mundo!")
+
+# mensagem()
+
+# def saudacoes(nome):
+#     print(f"Olá, {nome}")
+
+# saudacoes("João")
+
+# def saudacoes(nome):
+#     print(f"Olá, {nome}")
+
+# user = input("Digite seu nome: ")
+# saudacoes(user)
+
+# def saudacao():
+#     nome = input("digite seu nome: ")
+#     print(f"Olá, {nome}")
+
+# saudacao()
+
+# def soma():
+#     num1 = int(input("Difite o numero 1: "))
+#     num2 = int(input("Difite o numero 2: "))
+#     total = num1 + num2
+#     print(f"A soma do {num1} + {num2} = {total}")
+
+# soma()
+
+def soma(a, b):
+    """Retorna a soma de dois números."""
+    return a + b
+
+print(soma(2, 3))  # saída: 5
+print(soma.__doc__)  # saída: Retorna a soma de dois números.
