@@ -156,9 +156,43 @@
 
 # soma()
 
-def soma(a, b):
-    """Retorna a soma de dois números."""
-    return a + b
+#Classes - classes são moldes de encapsulamento de atributos e metodos, e aparti dela ciramos objetos. Instancias que usam o molde
 
-print(soma(2, 3))  # saída: 5
-print(soma.__doc__)  # saída: Retorna a soma de dois números.
+# class Pessoa: #Aqui quando eu declaro a classe eu posso passar algum parametro?
+#     def __init__(self, nome, idade): #Eu sou obrigado a toda vez que crio um classe usar esse metodo contrutor __init__ e passar o self referencia ao futuro objeto que ira usar essa classe.
+#         self.nome = nome # Atributo da classe, sempre sou obrigado a passar.
+#         self.idade = idade
+
+#     def saudacao(self): # Aqui mesma coisa, preciso sempre passar o self?
+#         print(f"O {self.nome} tem {self.idade} anos") # Aqui no print também o self é referencia aos valores do objeto certo?
+
+# pessoa1 = Pessoa("João",25)
+
+# pessoa1.saudacao()
+# class Viculos("modelo", "cor", "ano"):
+
+# class Teste:
+#     def saudacao(self):
+#         print(f"Olá, mundo")
+
+# teste = Teste()
+# teste.saudacao()
+
+# class Veiculo:
+#     def __init__(self, modelo, cor, ano):
+#         self.modelo = modelo
+#         self.cor = cor
+#         self.ano = ano
+
+#     def acelerar(self):
+#         print(f"O {self.modelo} {self.cor} ano {self.ano} está acelerando!!!")
+
+# # Coletando os dados do usuário
+# modelo = input("Digite o modelo do veículo: ")
+# cor = input("Digite a cor do veículo: ")
+# ano = int(input("Digite o ano do veículo: "))
+
+# # Criando o objeto com os valores informados
+# carro = Veiculo(modelo, cor, ano) #Ou passo aqui direto.
+# carro.acelerar()
+
