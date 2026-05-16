@@ -57,7 +57,7 @@
 # else:
 #     print("Não tem fruta")
 
-#6 Loops de repetição while:
+#6 Loops de repetição:
 #For itera uma sequencia (lista, string, range, etc) forma mais comum.
 # lista = ["GBA", "PS1", "NES"]
 
@@ -156,62 +156,162 @@
 
 # soma()
 
-#9 Classes - classes são moldes de encapsulamento de atributos e metodos, e aparti dela ciramos objetos. Instancias que usam o molde
+#9 Classes - classes são moldes de encapsulamento de atributos e metodos, e aparti dela criamos objetos. Instancias que usam o molde
 
-# class Pessoa: #Aqui quando eu declaro a classe eu posso passar algum parametro?
-#     def __init__(self, nome, idade): #Eu sou obrigado a toda vez que crio um classe usar esse metodo contrutor __init__ e passar o self referencia ao futuro objeto que ira usar essa classe.
-#         self.nome = nome # Atributo da classe, sempre sou obrigado a passar.
+# class Pessoa(): #Classe
+#     def __init__(self, nome, idade): #Construtor__init__ não é obrigatório, mas necessário se quiser receber dados ao criar objetos e receber atributos
+#         self.nome = nome #Atributo da classe
 #         self.idade = idade
 
-#     def saudacao(self): # Aqui mesma coisa, preciso sempre passar o self?
-#         print(f"O {self.nome} tem {self.idade} anos") # Aqui no print também o self é referencia aos valores do objeto certo?
+#     def apresentar(self): #Método
+#         print(f"Olá, meu sou o {self.nome} e tenho {self.idade} anos")
 
-# pessoa1 = Pessoa("João",25)
+# class Trabalho(Pessoa): #Classe filha
+#     def __init__(self, nome, idade, profissao,):
+#         super().__init__(nome, idade) #Super extende as funções da classe pai
+#         self.profissao = profissao #Atributo
 
-# pessoa1.saudacao()
-# class Viculos("modelo", "cor", "ano"):
+#     def falar_profissao(self):
+#         print(f"Eu sou {self.profissao}")
 
-# class Teste:
-#     def saudacao(self):
-#         print(f"Olá, mundo")
 
-# teste = Teste()
-# teste.saudacao()
+# pessoa1 = Trabalho("Ana", "20", "Medica")
+# pessoa1.apresentar()
+# pessoa1.falar_profissao()
 
-# class Veiculo:
-#     def __init__(self, modelo, cor, ano):
+# 9.1 Encapsulamento é a maneira de proteger atributos de acesso direto ou conflitos de herança.
+# podemos usar _atributo apenas para sinalizar ou __atributo para "esconder" o nome.
+# class Conta():
+#     def __init__(self, saldo):
+#         self.__saldo = saldo # esse __ (underline/underscore) serve para dizer não mexa nisso.
+
+#     def mostrar_saldo(self):
+#         print(f"Saldo {self.__saldo}")
+
+# class Banco(Conta):
+#     def __init__(self, saldo, agencia):
+#         super().__init__(saldo)
+#         self.agencia = agencia
+
+#     def local(self):
+#         print(f"Na {self.agencia} meu saldo é {self.saldo}") # da erro, para acessar é necessário usar o _Conta__saldo.
+
+# pessoa1 = Banco(3000, "Curitiba2")
+# pessoa1.local()
+
+# 9.2 Herança é a forma de reaproveitar classes,
+# herdando atributos e métodos de outra classe.
+#
+# Isso permite extender funcionalidades
+# sem precisar repetir código.
+# class Veiculo():
+#     def __init__(self, modelo, cor):
 #         self.modelo = modelo
 #         self.cor = cor
+    
+#     def informar_modelo(self):
+#         print(f"O Veiculo é {self.modelo}")
+
+# class Carro(Veiculo):
+#     def __init__(self, modelo, cor, ano):
+#         #self.modelo = modelo
+#         #self.cor = cor
+#         super().__init__(modelo, cor) #Melhor pática, pois podemos usar todos os atributos da classe pai, sem precisar definir um por um.
 #         self.ano = ano
 
-#     def acelerar(self):
-#         print(f"O {self.modelo} {self.cor} ano {self.ano} está acelerando!!!")
+#     def informar_carro(self):
+#         print(f"Meu carro é um {self.modelo} {self.cor} ano {self.ano}")
 
-# # Coletando os dados do usuário
-# modelo = input("Digite o modelo do veículo: ")
-# cor = input("Digite a cor do veículo: ")
-# ano = int(input("Digite o ano do veículo: "))
+# carro1 = Carro("gol","azul", 2013)
+# carro1.informar_carro()
 
-# # Criando o objeto com os valores informados
-# carro = Veiculo(modelo, cor, ano) #Ou passo aqui direto.
-# carro.acelerar()
+# 9.3 Polimorfismo é a capacidade de um mesmo método
+# ter comportamentos diferentes dependendo da classe.
+# class Animal:
+#     def fazer_som(self): # Método pai
+#         print("Som do animal")
 
-class Faculdade:
-    def __init__(self, curso):
-        self.curso = curso
+# class Cachorro(Animal):
+#     def fazer_som(self): #Sobescreve o método pai
+#         print("Au Au!")
 
-    def inscrito(self):
-        print(f"Eu estou inscrito no curso de {self.curso}")
+# class Gato(Animal):
+#     def fazer_som(self): #mesmo método da classe cachorro mas com comportamento diferente
+#         print("miau!")
 
-class Materia(Faculdade):
-    def __init__(self, curso, disciplina):
-        super().__init__(curso)
-        self.disciplina = disciplina
+# cao1 = Cachorro()
+# cao1.fazer_som()
 
-    def falar_materia(self):
-        print(f"Eu estou fazendo {self.disciplina}")
+# gato1 = Gato()
+# gato1.fazer_som()
 
-aluno = Materia("ADS","Calculo")
-aluno.inscrito()
-aluno.falar_materia()
+# 9.4 Abstração
+#
+# Abstração em POO serve para esconder complexidade
+# e mostrar apenas o necessário para usar um objeto.
+#
+# Também pode ser usada para padronizar classes filhas.
+class Pagamento():
+    def metodo(self):
+        print("Você está pagando")
+        print("Processando...")
+        print("Pagamento realizado")
 
+pix = Pagamento()
+pix.metodo()#Chamamos apenas um metodo, que faz diversos prints.
+
+#Padroniza
+from abc import ABC, abstractmethod 
+
+class Animal(ABC):
+    @abstractmethod # A classe Animal funciona como um molde/regra. @abstractmethod obriga a classe filha implementar aquele método.
+    def fazer_som(self):
+        pass
+
+class Cao(Animal):
+    def fazer_som(self): # Toda classe filha precisa implementar o método fazer_som().
+        print("Au Au")
+
+dog = Cao()
+dog.fazer_som()
+
+#explicação mais robusta
+# POO (Programação Orientada a Objetos) é um paradigma da programação,
+# ou seja, uma maneira de programar utilizando classes e objetos.
+#
+# Classes funcionam como moldes para criar objetos,
+# contendo atributos e métodos.
+#
+# A POO possui 4 pilares principais:
+#
+# Encapsulamento:
+# Protege e controla o acesso aos dados.
+#
+# Herança:
+# Permite reaproveitar atributos e métodos de outras classes.
+#
+# Polimorfismo:
+# Permite utilizar o mesmo método com comportamentos diferentes.
+#
+# Abstração:
+# Esconde complexidades e pode padronizar comportamentos.
+
+# Explicação simples:
+# POO é uma forma de programar usando objetos e classes
+# para organizar melhor o código.
+#
+# Classes funcionam como moldes para criar objetos.
+#
+# Os 4 pilares da POO são:
+#
+# Encapsulamento:
+# proteger dados.
+#
+# Herança:
+# reaproveitar código.
+#
+# Polimorfismo:
+# usar o mesmo método de formas diferentes.
+#
+# Abstração:
+# esconder complexidade.
