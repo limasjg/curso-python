@@ -94,7 +94,7 @@
 #     print(contador)
 #     contador = contador + 1
 
-# Estrutura de dados
+#7 Estrutura de dados
 # Listas - organizada e pode repetir o valor [ ]
 # lista = [1, 2, 3]
 # lista.append(3)
@@ -120,7 +120,7 @@
 # pessoa.update({"Cidade":"Curitiba"})
 # print(pessoa["nome"])
 
-#Funções são blocos de código que só executam quando chamados. Podem receber argumentos e são reutilizáveis.
+#8 Funções são blocos de código que só executam quando chamados. Podem receber argumentos e são reutilizáveis.
 # def soma(num1, num2):
 #     return num1 + num2
 
@@ -156,7 +156,7 @@
 
 # soma()
 
-#Classes - classes são moldes de encapsulamento de atributos e metodos, e aparti dela ciramos objetos. Instancias que usam o molde
+#9 Classes - classes são moldes de encapsulamento de atributos e metodos, e aparti dela ciramos objetos. Instancias que usam o molde
 
 # class Pessoa: #Aqui quando eu declaro a classe eu posso passar algum parametro?
 #     def __init__(self, nome, idade): #Eu sou obrigado a toda vez que crio um classe usar esse metodo contrutor __init__ e passar o self referencia ao futuro objeto que ira usar essa classe.
@@ -195,4 +195,23 @@
 # # Criando o objeto com os valores informados
 # carro = Veiculo(modelo, cor, ano) #Ou passo aqui direto.
 # carro.acelerar()
+
+class Faculdade:
+    def __init__(self, curso):
+        self.curso = curso
+
+    def inscrito(self):
+        print(f"Eu estou inscrito no curso de {self.curso}")
+
+class Materia(Faculdade):
+    def __init__(self, curso, disciplina):
+        super().__init__(curso)
+        self.disciplina = disciplina
+
+    def falar_materia(self):
+        print(f"Eu estou fazendo {self.disciplina}")
+
+aluno = Materia("ADS","Calculo")
+aluno.inscrito()
+aluno.falar_materia()
 
