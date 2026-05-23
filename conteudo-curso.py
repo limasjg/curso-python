@@ -251,29 +251,29 @@
 # e mostrar apenas o necessário para usar um objeto.
 #
 # Também pode ser usada para padronizar classes filhas.
-class Pagamento():
-    def metodo(self):
-        print("Você está pagando")
-        print("Processando...")
-        print("Pagamento realizado")
+# class Pagamento():
+#     def metodo(self):
+#         print("Você está pagando")
+#         print("Processando...")
+#         print("Pagamento realizado")
 
-pix = Pagamento()
-pix.metodo()#Chamamos apenas um metodo, que faz diversos prints.
+# pix = Pagamento()
+# pix.metodo()#Chamamos apenas um metodo, que faz diversos prints.
 
-#Padroniza
-from abc import ABC, abstractmethod 
+# #Padroniza
+# from abc import ABC, abstractmethod 
 
-class Animal(ABC):
-    @abstractmethod # A classe Animal funciona como um molde/regra. @abstractmethod obriga a classe filha implementar aquele método.
-    def fazer_som(self):
-        pass
+# class Animal(ABC):
+#     @abstractmethod # A classe Animal funciona como um molde/regra. @abstractmethod obriga a classe filha implementar aquele método.
+#     def fazer_som(self):
+#         pass
 
-class Cao(Animal):
-    def fazer_som(self): # Toda classe filha precisa implementar o método fazer_som().
-        print("Au Au")
+# class Cao(Animal):
+#     def fazer_som(self): # Toda classe filha precisa implementar o método fazer_som().
+#         print("Au Au")
 
-dog = Cao()
-dog.fazer_som()
+# dog = Cao()
+# dog.fazer_som()
 
 #explicação mais robusta
 # POO (Programação Orientada a Objetos) é um paradigma da programação,
@@ -315,3 +315,24 @@ dog.fazer_som()
 #
 # Abstração:
 # esconder complexidade.
+
+# Tratamento de erros - Usamos tratamento de erros em python, para realizar troubleshoting com mmaior eficiencia bem como organizar e debugar melhor o código
+# |Ou seja, usamos para previnir os erros, de forma que o código siga mesmo diante de um erro e esse erro fique fácil a visualização, ou caso paremos o fluxo, tenha
+# uma mensagem clara para o usuário
+# try:
+#     numero = 10
+#     resultado = numero / 0
+#     print(f"Resultado igual a {resultado}")
+# except ZeroDivisionError:
+#     print("Não é possivel dividir por zero")
+
+# try:
+#     idade = int(input("Digite usa idade: "))
+#     print(f"Sua idade é {idade} anos")
+# except ValueError:
+#     print(f"Valor é um valor inválido")
+# try:
+#     cpu = float(input("Quantos núcleos esse cpu tem: "))
+#     print(f"Esse cpu tem {cpu} núcleos")
+# except Exception as e:
+#     print(f"Detalhe do erro: {e}")
