@@ -336,3 +336,114 @@
 #     print(f"Esse cpu tem {cpu} núcleos")
 # except Exception as e:
 #     print(f"Detalhe do erro: {e}")
+
+#Tabuada
+# try:
+#     num = int(input("Qual tabuada de 1 a 9 você quer? "))
+
+#     if 1 <= num <= 10:
+#         for multi in range(1, 11):
+#             print(f"{num} x {multi:2} = {num * multi}")
+# except Exception as e:
+#     print(f"Erro: {e}")
+
+#Manipipulação de arquivos e pastas - Extremamente importante para infra estrutura e devops
+# Detecção de caminhos
+# import os #Muito importante saber lidar com esse import, pois operation sistem é a base de comunicação com a máquina.
+#Exemplos
+
+#file_path = "testes/teste.txt" # Caminho relativo
+# file_path = "C:\\Users\\meu-user\\Desktop\\teste" # Caminho absoluto
+# if os.path.exists(file_path):
+#     print("O caminho existe!")
+#     if os.path.isfile(file_path):
+#         print("É um arquivo.")
+#     elif os.path.isdir(file_path):
+#         print("É uma pasta.")
+# else:
+#     print("O caminho Não existe.")
+
+# import os
+# local_path = "."
+# local_list = os.listdir(local_path)
+# print(local_list)
+
+# import os
+# local_path = "."
+# for item in os.listdir(local_path):
+#     print(item)
+
+#Escrevendo em arquivos
+
+# txt_data = "Novo arquivo!" #Variavel com o texto da mensagem
+# file_path = "C:\\Users\\limas\\Desktop\\output.txt"
+
+# with open(file_path, "a") as file: #Usamos o with como boa prática pois ele fecha o arquivo automáticamente (caminho, modo)
+#     #mode "w" = Cria o arquivo e escreve nele, ou sobrescreve.
+#     #modo "x" = Cria o arquivo se ele não existe, não sobrescreve
+#     #modo "a" = append ou seja, adiciona ao arquivo. Tbm cria caso não exista
+#     file.write(txt_data) #função de escrita
+#     print("Mesagem escrita")
+
+# # Escrevendo Listas
+# personagens = ["Naruto", "Ichigo", "Goku", "Eduard"]
+# file_path = "output.txt"
+
+# with open(file_path, "a") as file:
+#     for personagem in personagens:
+#         file.write(personagem + "\n")
+#     print("Lista escrita no arquivo.")
+
+#Escrevendo Json
+# import json
+# ninja = {
+#     "Nome": "Naruto",
+#     "idade": 33,
+#     "profissão": "Hokage"
+# }
+# file_path = "output.json"
+# try:
+#     with open(file_path, "w", encoding="utf-8") as file:
+#         json.dump(ninja, file, indent=4, ensure_ascii=False)
+#         print("Arquivo json pronto.")
+# except Exception as e:
+#     print(f"Erro: {e}")
+
+#Escrevendo CSV
+# import csv
+# protagonista = [["nome", "idade", "Profissão"],
+#                 ["naruto", 33, "Ninja"],
+#                 ["Hengoku", 16, "Hashira"],
+#                 ["Goku", 40, "Artista Marcial"]]
+# file_path = "output.csv"
+
+# with open(file_path, "w", encoding="utf-8") as file:
+#     writer = csv.writer(file)
+#     for row in protagonista:
+#         writer.writerow(row)
+#     print("Arquivo csv pronto.")
+
+# Lendo arquivos txt:
+# Sem o with
+# file = open("testes/output.txt", "r")
+# print(file.read())
+# file.close()  # precisa fechar manualmente
+
+
+# Com with
+# file_path ="testes/output.txt"
+
+# with open(file_path, "r") as file:
+#     # content = file.read()
+#     print(file.read())
+
+#Lendo json
+# import json
+# file_path = "testes/output.json"
+
+# with open(file_path, "r") as file:
+#     content = json.load(file) #salvar em variavel é melhor para poder pegar apenas via key depois
+#     print(content["Nome"])
+
+#Lendo CSV
+#  
